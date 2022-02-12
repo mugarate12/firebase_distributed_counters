@@ -38,6 +38,8 @@ const Home: NextPage = () => {
   const post = usePost({ updateComments, setUpdateComments })
   const postsOperations = usePostsOperations()
 
+  const defaultText = 'sou um texto de exemplo'
+
   async function handleComment() {
     await postsOperations.addComment(String(post?.id), String(post?.author.id), comment)
     setUpdateComments(true)
@@ -98,22 +100,22 @@ const Home: NextPage = () => {
         >
           <CardHeader
             avatar={
-              <Avatar alt='Author image' src={post?.author.image}/>
+              <Avatar alt='Author image' src={!!post?.author && !!post.author.image? post.author.image : 'authorImage.jpg'}/>
             }
-            title={post?.author.name}
-            subheader={post?.author.description}
+            title={!!post?.author.name ? post?.author.name : 'Ichigo'}
+            subheader={!!post ? post?.author.description : 'Shinigami'}
           />
 
           <CardMedia
             component="img"
             height="194"
-            image={post?.image}
+            src={!!post && !!post?.image ? post.image : 'postImage.jpg'}
             alt="post image"
           />
 
           <CardContent>
             <Typography variant='body2'>
-              Volto em 2022, vamos pra guerra dos mil anos!
+              {!!post?.content ? post.content : defaultText}
             </Typography>
           </CardContent>
 
