@@ -1,14 +1,24 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
+// console.log(`
+//   apiKey: ${process.env.apiKey},
+//   authDomain: ${process.env.authDomain},
+//   projectId: ${process.env.projectId},
+//   storageBucket: ${process.env.storageBucket},
+//   messagingSenderId: ${process.env.messagingSenderId},
+//   appId: ${process.env.appId},
+//   measurementId: ${process.env.measurementId}
+// `);
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAiTWutWFzcSIYaeIVWiymogMkpO6N4Bgo",
-  authDomain: "contadores-distribuidos.firebaseapp.com",
-  projectId: "contadores-distribuidos",
-  storageBucket: "contadores-distribuidos.appspot.com",
-  messagingSenderId: "192057130172",
-  appId: "1:192057130172:web:76b210c11c133d9b3d64b9",
-  measurementId: "G-42QWMEM43D"
+  apiKey: process.env.apiKey,
+  authDomain: process.env.authDomain,
+  projectId: process.env.projectId,
+  storageBucket: process.env.storageBucket,
+  messagingSenderId: process.env.messagingSenderId,
+  appId: process.env.appId,
+  measurementId: process.env.measurementId
 }
 
 export const app = initializeApp(firebaseConfig)
